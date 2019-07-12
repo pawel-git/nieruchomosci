@@ -1,0 +1,659 @@
+/* Fonts import */
+@font-face {
+    font-family: montserrat;
+    src: url(../fonts/Montserrat-Regular.otf);
+  }
+@font-face {
+    font-family: montserrat;
+    src: url(../fonts/Montserrat-SemiBold.otf);
+    font-weight: bold;
+  }
+@font-face {
+    font-family: raleway;
+    src: url(../fonts/Raleway-Regular.ttf);
+  }
+@font-face {
+    font-family: ralewaySemi;
+    src: url(../fonts/Raleway-SemiBold.ttf);
+  }
+@font-face {
+    font-family: raleway;
+    src: url(../fonts/Raleway-Bold.ttf);
+    font-weight: bold;
+  }
+  /* Fonts END */
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: raleway;
+    color: #838383;
+}
+
+/* Główne klasy
+--------------------------- */
+/* Usunięcie kolorów linków */
+a{
+    text-decoration: none;
+    color: inherit;
+}
+/* Wyśrodkowany 1200px */
+.container{
+    width: 1200px;
+    margin: auto;
+}
+/* Pełna szerokość */
+.container-fluid{
+    width: 100%;
+}
+/* Pełny ekran */
+.container-full{
+    width: 100%;
+    height: 100vh;
+}
+/* Pojedyńcza sekcja */
+.content{
+}
+.content h2{
+    margin-top: 3.5rem;
+    color: #1f223e;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+.content h3{
+    margin-top: 0;
+    font-family: montserrat;
+    color: #1f223e;
+}
+/* END
+------------------- */
+
+
+/* Header section
+-----------------------*/
+/* BURGER  */
+.burger{
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: none;
+    z-index: 999;
+}
+.hamburger{
+    width: 25px;
+    height: 3px;
+    background: #9e9e9e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    transition: .5s;
+}
+.hamburger:before,
+.hamburger:after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: #9e9e9e;
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+    transition: .5s;
+}
+.hamburger:before{
+    top: -8px;
+    left: 0;
+}
+.hamburger:after{
+    top: 8px;
+    left: 0;
+}
+
+.burger.active .hamburger{
+    background: rgba(0,0,0,0);
+    box-shadow: 0 2px 5px rgba(0,0,0,0);
+}
+.burger.active .hamburger:before{
+    top: 0;
+    transform: rotate(45deg);
+}
+.burger.active .hamburger:after{
+    top: 0;
+    transform: rotate(135deg);
+}
+/* Burger END */
+
+/* Przyklejenie headera do góry */
+header{
+    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+/* Ustawienie wyświetlania i czcionki dla menu */
+header nav{
+    display: flex;
+    justify-content: space-between;
+    padding: .3rem 0;
+    font-family: montserrat;
+    font-weight: bold;
+}
+header nav .responsive-logo{
+    display: none;
+}
+header nav ul{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header nav ul li{
+    margin: 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+}
+header nav .active,
+header nav ul li:hover{
+    color: #95c41f;
+}
+
+
+
+/* END
+---------------------- */
+
+/* Welcome section
+---------------------- */
+
+/* Dodanie tła do pierwszej sekcji welcome 
+   Ustawienie wyświetlania tekstu powitalnego*/
+#welcome{
+    background-image: url('../images/background.png');
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-text{
+    font-family: raleway;
+    color: #fff;
+    text-align: center;
+}
+/* Nagłówki dla welcome text */
+.welcome-text h1{
+    text-transform: uppercase;
+    font-size: 4rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+.welcome-text h2{
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+.welcome-text p{
+    font-family: ralewaySemi;
+    margin: 0;
+}
+/* Przycisk welcome text */
+.welcome-text .button{
+    margin: 2.5rem auto;
+    border: solid 2px #fff;
+    width: 130px;
+    height: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+.welcome-text .button:hover{
+    background-color: #95c41f;
+}
+/* END
+---------------------- */
+
+/* Dream house section
+---------------------- */
+/* Formularz wyboru, siatka grid, odsunięcie od h2 */
+#dreamHouse form{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2.3rem;
+    margin-top: 3.5rem;
+}
+/* Pojedyncze pole wyboru */
+#dreamHouse form .select-field{
+    height: 2rem;
+    font-family: raleway;
+}
+/* Przycisk wyszukaj */
+#dreamHouse form .submit{
+    background-color: #95c41f;
+    color: #fff;
+    border-radius: 0;
+    border: none;
+    cursor: pointer;
+}
+/* Usunięcie marginesu górnego z zakresu cen */
+#dreamHouse .range-slider p{
+    margin-top: 0;
+}
+/* Schowanie slidera pod menu */
+#dreamHouse .range-slider{
+    z-index: 0;
+}
+/* Dream house END */
+
+/* Why Us section
+-------------------- */
+
+/* Ustawienie grid dla zdjęcia i tekstu
+Ustawienie górnego marginesu ponieważ nie ma h2 */
+#whyUs{
+    margin-top: 10rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+/* Obniżenie, wyrównanie tekstu do zdjęcia */
+#whyUs .text-box{
+    text-align: justify;
+    margin-top: 1.2rem;
+}
+#whyUs .text-box h2{
+    text-align: left;
+    margin: 0;
+}
+/* Span do pogrubienie pojedynczych elementów */
+#whyUs .text-box .bold{
+    font-weight: bold;
+}
+/* Why Us END */
+
+/* Our services section
+-------------------------- */
+/* wyśrodkowanie tekstu pod nagłówkiem */
+#ourServices p{
+    text-align: center;
+    margin: .4rem;
+}
+/* ustawienie 3 kategorii obok siebie 
+   przesunięcie od góry i dołu*/
+#ourServices .services{
+    margin-top: 3.5rem;
+    margin-bottom: 7rem;
+    display: flex;
+    justify-content: space-between;
+}
+/* ułożenie zdjęci i tekstu w danej kategorii */
+#ourServices .box{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: .5rem;
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+#ourServices .box:hover{
+    opacity: .5;
+}
+/* wyrównanie tekstu w kategorii do lewej */
+#ourServices .text-box p{
+    text-align: left;
+    line-height: 1.6rem;
+}
+/* Our services END */
+
+
+/* Best prices section
+------------------------- */
+/* wyśrodkowanie tekstu pod nagłówkiem */
+#bestPrices p{
+    text-align: center;
+    margin: .4rem;
+}
+/* Ustawienie marginesów slidera
+   wyświetlenie elementów w siatce */
+#bestPrices .houses{
+    margin-top: 3.5rem;
+    margin-bottom: 7rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/* Pojedyńczy element slidera */
+#bestPrices .box{
+    width: 360px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover;
+    opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+#bestPrices .box:hover{
+    opacity: .5;
+}
+/* kolor tła tytułu elementu slidera */
+#bestPrices .box .title{
+    background-color: #1f223e;
+    padding: .4rem;
+}
+/* nagłówek w tytule elementu slidera */
+#bestPrices .box .title h3{
+    color: #fff;
+    margin: 0;
+}
+/* cena w tytule */
+#bestPrices .box .title .price{
+    color: #95c41f;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+/* dolna część elementu slidera */
+#bestPrices .box .config{
+    color: #fff;
+    font-size: 1.2rem;
+    background: rgba(0, 0, 0, .6);
+    padding: 1.1rem;
+}
+/* ułożenie lokalizacji, ceny oraz dolnych elementów */
+#bestPrices .box .title .info,
+#bestPrices .box .config{
+    display: flex;
+    justify-content: space-between;
+}
+/* dodanie do każdego elementu zdjęcia */
+#bestPrices .box1{
+    background-image: url("../images/offer1.png");
+}
+#bestPrices .box2{
+    background-image: url("../images/offer2.png");
+}
+#bestPrices .box3{
+    background-image: url("../images/offer3.png");
+}
+/* Best prices END */
+
+/* Our benefits section
+------------------------ */
+/* Ustawienie tytułu do lewej */
+#ourBenefits, 
+#ourBenefits h2{
+    text-align: left;
+}
+#ourBenefits p{
+    margin: 0;
+}
+/* Ustawienei w rzędzie udogodnień i zdjęcia sketch */
+#ourBenefits .box{
+    margin: 2rem 0 7rem;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+}
+/* Utworzenie siatki dla udogodnień */
+#ourBenefits .box .benefits{
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/* Wyśrodkowanie zdjęcia sketch */
+#ourBenefits .box .sketch{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Our benefits END */
+
+/* Customers section
+---------------------------- */
+/* wyśrodkowanie tekstu pod nagłówkiem */
+#customers p{
+    text-align: center;
+    margin: .4rem;
+}
+/* Ustawienie opini w siatce obok siebie 
+   ustawienie dolnego marginesu*/
+#customers .slider{
+    display: grid;
+    grid-gap: 6rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 5rem;
+}
+/* ustawienie zdjęcia opini nad tekstem */
+#customers .slider .review{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+/* wyśrodkowanie zdjęcia opini */
+#customers .slider .review .portrait{
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 1rem;
+}
+/* Customers END */
+
+/* Footer section
+--------------------------- */
+footer{
+    background-color: #1f223e;
+    font-family: montserrat;
+}
+/* Ustawienie obok siebie sekcji newsletter skróty kontakt */
+footer .links{
+    display: grid;
+    grid-gap: 5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/* nagłówki sekcji */
+footer .links h3{
+    color: #fff;
+    text-transform: uppercase;
+}
+/* ustawienie tytułu skórty i listy UL w siatce grid
+   dzięki temu można ustawić LI na całą powierzchnię */
+footer .links .short{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+}
+/* rozciągnięcie listy na całą długość */
+footer .links ul{
+    font-weight: bold;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* pozycja kontakty ustawienie w siatce */
+footer .links .contact .contact-positions{
+    font-weight: bold;
+    display: grid;
+    grid-gap: .9rem;
+    grid-template-columns: auto 1fr;
+}
+/* wyśrodkowanie ikony, wielkosc ikon*/
+footer .links .contact .icon{
+    font-size: 2.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* ukrycie inputa */
+footer .subscribe-input{
+    border: none;
+    background: transparent;
+    width: 100%;
+    color: #fff;
+}
+/* usunięcie ramki gdy input aktywny */
+footer .subscribe-input:focus{
+    outline: none;
+}
+/* nowa ramka, w środku input i przycisk */
+footer .subscription{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    border: solid 1px #838383;
+    background: #1f223e;
+    width: 100%;
+    height: 2rem;
+}
+/* Copyrights */
+footer .rights{
+    margin-top: 2rem;
+    padding: .8rem;
+    border-top: solid 1px;
+    text-align: center;
+}
+footer .rights p{
+    margin: 0;
+}
+/* Footer END */
+
+
+/* Responsive */
+@media (max-width: 1234px){
+    .container{
+        width: 100%;
+        padding: 0 2.3rem;
+    }
+    #bestPrices .box3{
+        display: none;
+    }
+    #bestPrices .houses{
+        grid-template-columns: 1fr 1fr;
+    }
+    #bestPrices .box{
+        justify-self: center;
+    }
+}
+@media (max-width: 992px){
+    .welcome-text h1{
+        font-size: 2.5rem;
+    }
+    .welcome-text h2{
+        font-size: 1.3rem;
+    }
+    .welcome-text p{
+        font-size: .8rem;
+    }
+    header nav .logo{
+        display: none;
+    }
+    header nav ul{
+        position: absolute;
+        top: 0;
+        left: -250px;
+        background: rgba(255, 255, 255, 1);
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+        transition: .5s;
+    }
+    header nav .activeNav{
+        left: 0;
+    }
+    header nav ul li{
+        margin: 1.8rem;
+    }
+    header nav .responsive-logo{
+        display: block;
+        position: fixed;
+        top: 1rem;
+    }
+    header nav .responsive-logo a{
+        display: flex;
+        justify-content: center;
+    }
+    header nav .responsive-logo img{
+        width: 60%;
+        height: 60%;
+    }
+    .burger{
+        display: block;
+    }
+    #whyUs{
+        grid-template-columns: 1fr;
+    }
+    #whyUs img{
+        display: none;
+    }
+    #ourServices .services{
+        flex-direction: column;
+        align-items: center;
+    }
+    #ourServices .box{
+        margin: .6rem;
+        max-width: 400px;
+    }
+    #ourServices .box .text-box,
+    #ourServices .box .text-box p{
+        text-align: center;
+    }
+    #ourServices .box img{
+        justify-self: center;
+    }
+    #ourBenefits .box .sketch{
+        display: none;
+    }
+    #ourBenefits .box{
+        grid-template-columns: 1fr;
+    }
+    #bestPrices .box3{
+        display: flex;
+    }
+    #bestPrices .houses{
+        grid-template-columns: 1fr;
+        grid-gap: 2rem;
+    }
+}
+@media (max-width: 768px){
+    #ourServices .box{
+        grid-template-columns: auto;
+    }
+    #dreamHouse form{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    #customers .slider{
+        grid-template-columns: 1fr;
+    }
+    footer .links{
+        grid-template-columns: 1fr;
+        grid-gap: 1rem;
+        width: 80%;
+    }
+    footer .links ul li{
+        margin: 1rem 0;
+    }
+    #ourBenefits .box .benefits{
+        grid-template-columns: 1fr 1fr;
+    }
+    #bestPrices .box{
+        width: 260px;
+        height: 260px;
+    }
+}
